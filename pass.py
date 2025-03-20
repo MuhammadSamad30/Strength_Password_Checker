@@ -11,10 +11,12 @@ st.markdown("""
 This tool will help you determine the **strength** of your **password**. Simply type in your password and hit the button below to check its strength! 💪
 """)
 
+
 def generate_strong_pass(length=12):
     characters = string.ascii_letters + string.digits + "!@#$%&*?"
     password = ''.join(random.choice(characters) for _ in range(length))
     return password
+
 
 password = st.text_input("🔒 Enter your password:", type='password')
 checkbtn = st.button("✅ Check Password")
@@ -24,6 +26,7 @@ if generatebtn:
     strong_password = generate_strong_pass()
     st.text_input("🛡️ Your Strong Password:",
                   value=strong_password, type='default')
+    st.success("New Password was Generated Successfully! 🎉")
 
 if checkbtn:
     feedback = []
